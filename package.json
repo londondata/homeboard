@@ -1,0 +1,27 @@
+{
+  "name": "homeboard",
+  "version": "1.0.0",
+  "description": "a web based home management dashboard",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teripanda/homeboard.git"
+  },
+  "keywords": [
+    "home",
+    "memebers",
+    "management"
+  ],
+  "author": "biniam hagos <biniam.hagos17@gmailcom>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teripanda/homeboard/issues"
+  },
+  "homepage": "https://github.com/teripanda/homeboard#readme",
+  "dependencies": {
+    "mongoose": "^5.1.2"
+  }
+}
