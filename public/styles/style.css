@@ -3,7 +3,7 @@
 	/*box-sizing: border-box;*/
 	font-family: 'Josefin Sans',
 	text-decoration: none;
-	background-color: chartreuse;
+	background-color: grey;
 	border-radius: 5px;
 	margin: 0;
 }
@@ -13,35 +13,43 @@
 	border: 5px solid black;
 }*/
 
+
 	.row > div{
         margin-bottom: 15px;
     }
 	.header{
         min-height: 90px;
         text-align: center;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
     }
     .footer{
         min-height: 40px;
         text-align: right;
-        text: .5em;
+    
     }
     .header, .footer{
     	color: white;
-		margin: auto;
+/*		margin: auto;*/
         background: #2f2f2f;
     }
     .household, .chores{
         min-height: 350px;
         background: #dbdfe5;
+        padding: 10px;
     }
     .pets{
         min-height: 160px;
         background: #b4bac0;
+        padding: 10px;
     }
     .message-wall{
         min-height: 150px;
         background: #7e8aa0;
         margin-bottom: -15px;
+        padding: 10px;
+
     }
   /*  .content-bottom.bg-alt{
         background: #9ca5b6;
