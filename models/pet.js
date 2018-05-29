@@ -2,13 +2,13 @@ const mongoose = require('mongoose'),
       Schema = mongoose.Schema;
 
       let petSchema = new Schema({
-        name: string,
-        type: string,
-        isFed: boolean
+        name: String,
+        type: String,
+        isFed: Boolean
     })      
     
     
     
-    let Pet = mongoose.model('Pet', userSchema)
+    let Pet = mongoose.model('Pet', petSchema)
      module.exports = Pet;
     

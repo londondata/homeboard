@@ -2,10 +2,10 @@ const mongoose = require('mongoose'),
       Schema = mongoose.Schema;
 
       let userSchema = new Schema({
-        name: string,
-        work: [{where: string, workhours: string}],
+        name: String,
+        work: [{where: String, workhours: String}],
         Chors: [{type: Schema.Types.ObjectId, ref: 'Chor'}],
-        isHome: boolean
+        isHome: Boolean
     })      
     
     

@@ -2,10 +2,10 @@ const mongoose = require('mongoose'),
       Schema = mongoose.Schema;
 
       let chorSchema = new Schema({
-        name: string,
+        name: String,
         dueBy:Date ,
         by: {type: Schema.Types.ObjectId, ref: 'User'},
-        isDone: boolean
+        isDone: Boolean
     })      
     
     

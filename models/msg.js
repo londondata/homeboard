@@ -2,10 +2,10 @@ const mongoose = require('mongoose'),
       Schema = mongoose.Schema;
 
       let msgSchema = new Schema({
-        title: string,
-        msg: string,
-        response: [{res: string, by: {type: Schema.Types.ObjectId, ref:'User'}}],
-        urgent: boolean
+        title: String,
+        msg: String,
+        response: [{res: String, by: {type: Schema.Types.ObjectId, ref:'User'}}],
+        urgent: Boolean
     })      
     
     let Msg = mongoose.model('Msg', msgSchema)

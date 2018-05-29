@@ -2,27 +2,21 @@ const mongoose = require('mongoose'),
       Schema = mongoose.Schema;
 
     let utilitySchema = new Schema({
-        name: string,
-        company: string,
-        cost: number,
-        isPaid: boolean,
+        name: String,
+        company: String,
+        cost: Number,
+        isPaid: Boolean,
         responsible: {type: Schema.Types.ObjectId, ref: 'User'}
-    })  
-    // let chorSchema = new Schema({
-    //     name: string,
-    //     due: Date,
-    //     isDone: boolean,
-    //     responsible: {type: Schema.Types.ObjectId, ref: 'User'}
-    // })      
+    })     
 
     let grocerySchema = new Schema({
-        name: string,
-        isOut: boolean,
+        name: String,
+        isOut: Boolean,
         pickedUp: {when: Date, by:{type: Schema.Types.ObjectId, ref: 'User'} }
     })      
 
 let homeSchema = new Schema({
-    name: string,
+    name: String,
     members: [{type: Schema.Types.ObjectId, ref: 'User'}],
     pets: [{type: Schema.Types.ObjectId, ref: 'Pet'}],
     Chors: [{type: Schema.Types.ObjectId, ref: 'Chor'}],
