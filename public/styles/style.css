@@ -1,47 +1,65 @@
 * {
-	border: 1px solid black;
+/*	border: 1px solid white;*/
+	color: #00FEC8;
 	/*box-sizing: border-box;*/
-	font-family: 'Josefin Sans',
+	font-family: Courier New,
 	text-decoration: none;
-	background-color: grey;
-	border-radius: 5px;
+	background-color: #1B2227;
+	border-radius: 8px;
 	margin: 0;
 }
 
-/*.container {
-	display: inline-block;
-	border: 5px solid black;
-}*/
-
-
-	.row > div{
-        margin-bottom: 15px;
-    }
 	.header{
         min-height: 90px;
         text-align: center;
         display: flex;
-        flex-direction: row-reverse;
+        flex-direction: row;
         justify-content: flex-end;
+      	color: #00FEC8;
+       	border-radius: 0;
+    	margin: auto;
+    	flex-grow: 1;
+    	background-color: #1B2227;
+    }
+    .hb {
+    	justify-content: center;
+    	padding: 10px;
+    }
+
+    .date{
+    	padding: 10px;
+    	justify-content: right;
+    /*	width: 100px;
+    	height: 50px;*/
+    }
+
+    main {
+    	border-radius: 0px;
+    }
+
+    .container{
+    	padding-top: 25px;
+		/*border-radius: 5px;*/
+    }
+
+	.row > div{
+        margin-bottom: 15px;
     }
     .footer{
         min-height: 40px;
         text-align: right;
-    
-    }
-    .header, .footer{
     	color: white;
-/*		margin: auto;*/
-        background: #2f2f2f;
+        background: #2D353A;
+    
     }
     .household, .chores{
         min-height: 350px;
-        background: #dbdfe5;
+        background: #2D353A;
         padding: 10px;
     }
-    .pets{
+    .info{
         min-height: 160px;
-        background: #b4bac0;
+        background: #2D353A;
         padding: 10px;
     }
     .message-wall{
