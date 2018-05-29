@@ -1,3 +1,5 @@
+// Teri's server.js
+
 const express =require('express'),
       app = express(),
       ejs = require('ejs')

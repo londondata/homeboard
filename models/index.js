@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 mongoose.connect('mongodb://localhost:27017/homeboard', {
   // useMongoClient: true
 }).then(function(succ){
-  console.log("database connected, look: ", succ)
+  // console.log("database connected, look: ", succ)
 }).catch((err)=>{
     console.log(`error caught while connecting to db ${err}`)
 })

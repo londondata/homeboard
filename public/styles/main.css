@@ -1,0 +1,38 @@
+*{
+    font-size: 15px;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+footer{
+    bottom: 0;
+    position: fixed;
+}
+
+main{
+    margin: 2em auto; 
+    border: 2px solid red;
+}
+
+#homes {
+    margin: 4em auto;
+    border: 2px solid green;
+}
+
+.homesContainer{
+    border: 2px solid blue;
+    text-align: center;
+    display: flex;
+    justify-content:center;
+}
+
+.home{
+    margin: 0 2em;
+}
+#addHome > i, #addHome > h1{
+    color: gray;
+}
+#addHomeForm{
+    display: none;
+}

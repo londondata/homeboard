@@ -10,7 +10,7 @@ router.get('/', main.showHome);
 //TODO: get Data
 // router.get('/', main.showHome);
 // TODO: create data
-router.get('/create-home', main.makeHome);
+router.post('/newhome', main.makeHome);
 
 // TODO: update data
 
