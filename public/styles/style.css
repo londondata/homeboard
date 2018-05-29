@@ -1,8 +1,7 @@
 * {
 /*	border: 1px solid white;*/
 	color: #00FEC8;
-	/*box-sizing: border-box;*/
-	font-family: Courier New,
+	font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
 	text-decoration: none;
 	background-color: #1B2227;
 	border-radius: 8px;
@@ -10,7 +9,7 @@
 }
 
 	.header{
-        min-height: 90px;
+        height: 75px;
         text-align: center;
         display: flex;
         flex-direction: row;
@@ -22,13 +21,11 @@
     	background-color: #1B2227;
     }
     .hb {
-    	justify-content: center;
     	padding: 10px;
     }
 
     .date{
     	padding: 10px;
-    	justify-content: right;
     /*	width: 100px;
     	height: 50px;*/
     }
@@ -42,6 +39,10 @@
 		/*border-radius: 5px;*/
     }
 
+    p {
+    	background-color: #2D353A;
+    }
+
 	.row > div{
         margin-bottom: 15px;
     }
@@ -53,26 +54,29 @@
     
     }
     .household, .chores{
-        min-height: 350px;
+        min-height: 400px;
         background: #2D353A;
         padding: 10px;
     }
     .info{
-        min-height: 160px;
+        min-height: 175px;
         background: #2D353A;
         padding: 10px;
     }
     .message-wall{
-        min-height: 150px;
+        min-height: 200px;
         background: #7e8aa0;
         margin-bottom: -15px;
         padding: 10px;
-
     }
-  /*  .content-bottom.bg-alt{
-        background: #9ca5b6;
-    }*/
-/* Styles for proper margin when layout become horizontal */
+    .message-wall > p{
+   		background: #7e8aa0;
+    }
+    .message-wall-input{
+    	border-radius: 8px;
+    }
+
+/* Styles for proper margin when layout becomes horizontal */
 @media (max-width: 991px){
     .content-bottom{
         margin-bottom: 15px;
