@@ -2,7 +2,7 @@
   "name": "homeboard",
   "version": "1.0.0",
   "description": "home management dashboar",
-  "main": "app.js",
+  "main": "server.js",
   "dependencies": {
     "body-parser": "^1.18.3",
     "bootstrap": "^3.3.7",
