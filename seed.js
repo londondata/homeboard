@@ -1,30 +1,36 @@
-const Home = require('./models/home');
 const mongoose = require('mongoose');
 
-let home = new Home({
-    _id: new mongoose.Types.ObjectId(),
-    name: "test Home",
-    members: null,
-    pets: null,
-    Chors: null,
-    utilities: null,
-    groceries: null,
-    msgWall: null,
+const Home = require('./models/home');
+
+mongoose.connect('mongodb://localhost:27017/homeboard', {
+  // useMongoClient: true
+}).then(function(succ){
+  console.log("database connected, look: ", succ)
+}).catch((err)=>{
+    console.log(`error caught while connecting to db ${err}`)
 })
+    save = ()=>{
+        let newHome = new Home({
+            name: "test Home",
+            members: null,
+            pets: null,
+            Chors: null,
+            utilities: null,
+            groceries: null,
+            msgWall: null,
+            });
+
+        newHome
+            .save()
+            .then ((result)=>{
+             console.log("Result: ", result)
+            }).catch((err)=>{
+                console.log(err)
+            });
+
+    }
 
 
-  home.save()
-      .then((succ)=>{
-          console.log(`it works: look ${succ} 🙅🏾‍♂️`)
-        // let user = new User({
-        //     _id: new mongoose.Types.ObjectId(),
-        //     name: "user one",
-        //     work: [{where: "GA", workhours: "M-F 8-5"}],
-        //     Chors: null,
-        //     isHome: false
-        // })
-      })
-      .catch((err)=>{
-          console.log(err)
-      })
+    save();
+
 

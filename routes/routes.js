@@ -4,16 +4,15 @@ const express = require('express'),
       main = require('../controllers/main');
 
 
-//setup mongo connection
-mongoose.connect('mongodb://localhost:27017/homeBoard', {
-  // useMongoClient: true
-}).then(function(){
-  console.log('database connected')
-}).catch((err)=>{
-    console.log(`error caught while connecting to db ${err}`)
-})
-module.exports = router;
-
 //create routes
+// TODO: get data
 router.get('/', main.showHome);
+//TODO: get Data
+// router.get('/', main.showHome);
+// TODO: create data
+router.get('/create-home', main.makeHome);
 
+// TODO: update data
+
+// TODO: delete data
+module.exports = router;
