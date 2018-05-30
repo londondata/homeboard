@@ -47,12 +47,6 @@
 
     .fas{
     	background-color: #2D353A;
-  /*  	display: flex;
-    	flex-direction: row;
-    	justify-content: flex-end;
-    	align-items: flex-end;*/
-   /* 	margin-bottom: 10px;*/
-
     }
     .household, .info, .chores {
     	display: flex;
@@ -92,6 +86,10 @@
    		color: black;
     }
     .message-wall-input{
+    	border-radius: 0;
+    }
+
+    #householdModal {
     	border-radius: 0;
     }
 
