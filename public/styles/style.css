@@ -10,7 +10,6 @@
 
 	.header{
         height: 75px;
-        text-align: center;
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
@@ -20,12 +19,17 @@
     }
     .hb {
     	padding: 10px;
+    	margin: auto;
+    	display: flex;
+    	justify-content: center;
     }
 
     .date{
     	padding: 10px;
     	margin-top: 22px;
     	margin-right: 10px;
+    	display: flex;
+    	justify-content: right;
     }
 
     main {
@@ -38,12 +42,22 @@
 
     p {
     	background-color: #2D353A;
-    	display: inline;
+    /*	margin-top: 20px;*/
     }
 
     .fas{
     	background-color: #2D353A;
-    	margin-right: 1px;
+  /*  	display: flex;
+    	flex-direction: row;
+    	justify-content: flex-end;
+    	align-items: flex-end;*/
+   /* 	margin-bottom: 10px;*/
+
+    }
+    .household, .info, .chores {
+    	display: flex;
+    	flex-direction: row;
+    	justify-content: space-between;
     }
 
 	.row > div{
@@ -75,6 +89,7 @@
     }
     .message-wall > p{
    		background: #97A2B7;
+   		color: black;
     }
     .message-wall-input{
     	border-radius: 0;
