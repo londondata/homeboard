@@ -4,13 +4,14 @@
 $(document).ready(() =>{
     console.log("sanity check")
 
-//set homeboard name
-var now = new Date();
-var day = ("0" + now.getDate()).slice(-2);
-var month = ("0" + (now.getMonth() + 1)).slice(-2);
-var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+    // set current date
+    var now = new Date();
+    var day = ("0" + now.getDate()).slice(-2);
+    var month = ("0" + (now.getMonth() + 1)).slice(-2);
+    var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
 
-$('#date').val(today);
+    //ADD HOME WHEN BTN CLICKED
+    $('#date').val(today);
     $("#addHome").on("click", (e)=>{
         e.preventDefault();
         e.stopImmediatePropagation();
@@ -18,6 +19,7 @@ $('#date').val(today);
         $('#addHomeForm').css("display","inline-block");
     });
 
+    //GO TO SELECTED HOME
     // when a specific  home is selected pass the id and get the respective home data
     //also render new page with the requested home
     $(".Home").on("click", $('#homes'), (e)=>{
@@ -25,27 +27,29 @@ $('#date').val(today);
         e.stopImmediatePropagation();
         let id = e.currentTarget.id
         console.log(id)
-        
+                
         $.ajax({
             method: 'GET',
             url: `/${id}`,
             success: (res) => {
                 // console.log("this is res:", res)
                 window.location.href= `/${id}`;
-            },
-            error: (a, b, c) => {
-              console.log(a, b, c)
-            }
-          })
+                },
+                error: (a, b, c) => {
+                console.log(a, b, c)
+                }
+            
+        });
     });
-        // console.log(`home with id ${e.currentTarget.id} clicked`)
 
+    // console.log(`home with id ${e.currentTarget.id} clicked`)
+    //DELETE THE HOME WHEN THE BUTTON IS CLICKED
     $(".dltThisHome").on('click', (e)=>{
         e.preventDefault();
         e.stopImmediatePropagation();
         let id = e.currentTarget.id
-    //  console.log(`home id ${e.currentTarget.id} will be destroyed`)
-      $.ajax({
+        //  console.log(`home id ${e.currentTarget.id} will be destroyed`)
+        $.ajax({
             method: 'DELETE',
             url: `/${id}`,
             success: (res) => {
@@ -53,12 +57,12 @@ $('#date').val(today);
                 window.location = `/`
             },
             error: (a, b, c) => {
-              console.log(a, b, c)
+                 console.log(a, b, c)
             }
-          })
+        });
     });
 
-
+    //CREATE USER WHEN BTN-ADD-USER IS CLICKED
     $('.addUser').on("click", (e)=> {
         e.preventDefault();
         e.stopImmediatePropagation();
@@ -67,20 +71,21 @@ $('#date').val(today);
         $.ajax({
             method: 'post',
             url: `/newuser`,
-            data: {name:"biniam", work:{where: "GA", workhours: "m-f 9-5"},
-            chors: null,
-            isHome: true,
-            homeid: {type: id, ref: 'home'}
-                },
+            data: {
+                name:"biniam", 
+                work:{where: "GA", workhours: "m-f 9-5"},
+                chors: null,
+                isHome: true,
+                homeid: {type: id, ref: 'home'}
+            },
             success: (res) => {
-
-                console.log("just made user", res)
-                window.location = `/`
+                 console.log("just made user", res)
+                 window.location = `/`
             },
             error: (a, b, c) => {
-              console.log(a, b, c)
+                console.log(a, b, c)
             }
-          })
-    })
+        });
+    });
 
-})
+});

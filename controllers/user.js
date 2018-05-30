@@ -27,7 +27,7 @@ module.exports = {
             
     },
     
-    //TODO: show users
+    //show users
     index: (req, res) => {
         db.User.find({})
             .then((results)=>{
@@ -39,7 +39,7 @@ module.exports = {
     
     },
 
-    // TODO: find one user with id
+    //find one user with id
     show:(req, res)=>{
         // console.log("finding user")
         let id = req.params.id;
@@ -49,7 +49,7 @@ module.exports = {
         })
     },
 
-    //TODO: update or modify user
+    //update or modify user
     update: (req, res) => {
         let id = req.params.id
         let data = req.body

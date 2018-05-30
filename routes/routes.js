@@ -1,36 +1,23 @@
 
 const express = require('express'),
       router = express.Router(),
-      homeController = require('../controllers/home');
-      userController = require('../controllers/user');
+      controller = require('../controllers/index');
 
 
-//create routes
-// TODO: get data
-router.get('/', homeController.index);
-//TODO: get home by id
-router.get('/:id', homeController.show);
-// TODO: create data
-router.post('/newhome', homeController.create);
-// TODO: update data
-// router.post('/newhome', main.makeHome);
-router.put('/:id', homeController.update)
-// TODO: delete data
-router.delete('/:id', homeController.destroy);
+//routes for home
+router.get('/',controller.homes.index);
+router.get('/:id',controller.homes.show);
+router.post('/newhome',controller.homes.create);
+router.put('/:id',controller.homes.update)
+router.delete('/:id',controller.homes.destroy);
 
 
-
-
-// TODO: User ROUTES
-router.get('/user', userController.index);
-//TODO: get user by id
-router.get('/user/:id', userController.show);
-// TODO: create user
-router.post('/newuser', userController.create);
-// TODO: update user
-router.put('/user/:id', userController.update)
-// TODO: delete user
-router.delete('/user/:id', userController.destroy);
+//routes for user
+router.get('/user',controller.users.index);
+router.get('/user/:id',controller.users.show);
+router.post('/newuser',controller.users.create);
+router.put('/user/:id',controller.users.update);
+router.delete('/user/:id',controller.users.destroy);
 
 
 module.exports = router;
