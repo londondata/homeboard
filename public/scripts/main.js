@@ -1,9 +1,16 @@
 $(document).ready(() =>{
     console.log("sanity check")
 
+//set homeboard name
+var now = new Date();
+var day = ("0" + now.getDate()).slice(-2);
+var month = ("0" + (now.getMonth() + 1)).slice(-2);
+var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+
+$('#date').val(today);
     $("#addHome").on("click", (e)=>{
         e.preventDefault();
-    e.stopImmediatePropagation();
+        e.stopImmediatePropagation();
         console.log("sanity check")
         $('#addHomeForm').css("display","inline-block");
     });
@@ -12,6 +19,7 @@ $(document).ready(() =>{
     //also render new page with the requested home
     $(".Home").on("click", $('#homes'), (e)=>{
         e.preventDefault();
+        e.stopImmediatePropagation();
         let id = e.currentTarget.id
         console.log(id)
         
@@ -19,7 +27,8 @@ $(document).ready(() =>{
             method: 'GET',
             url: `/${id}`,
             success: (res) => {
-                window.location.href= `/${id}`
+                // console.log("this is res:", res)
+                window.location.href= `/${id}`;
             },
             error: (a, b, c) => {
               console.log(a, b, c)
@@ -28,15 +37,17 @@ $(document).ready(() =>{
     });
         // console.log(`home with id ${e.currentTarget.id} clicked`)
 
-    $("#thishome").find('button').on('click', (e)=>{
+    $(".dltThisHome").on('click', (e)=>{
         e.preventDefault();
+        e.stopImmediatePropagation();
         let id = e.currentTarget.id
-     console.log(`home id ${e.currentTarget.id} will be destroyed`)
+    //  console.log(`home id ${e.currentTarget.id} will be destroyed`)
       $.ajax({
-            method: 'POST',
+            method: 'DELETE',
             url: `/${id}`,
             success: (res) => {
-                window.location.href = `/`
+                console.log("just deleted home")
+                window.location = `/`
             },
             error: (a, b, c) => {
               console.log(a, b, c)

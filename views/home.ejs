@@ -1,4 +1,55 @@
-<div id="thishome" class="jumbotron">
+<!-- <div id="thishome" class="jumbotron">
         <h1><%= home.name %></h1> 
        <button id=<%=home.id %>>deleteHome</button> 
+</div> -->
+
+
+<div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="household"><p>household + pets    <i class="fas fa-plus"></i> </p>
+                                <ul id="members">
+                                        <!-- get the users and iterate through them using ejs -->
+                                        <%if (home.members !== null && home.members.length >= 1) { %>
+                                                <% home.members.forEach((member)=> { %>
+                                        <li class="member" id= <%= member.id %>>
+                                            <div>
+                                                <i style = "font-size: 6em" class="fas fa-person"></i>
+                                                <h1><%= member.name %></h1>
+                                            </div>
+                                        </div> 
+                                        <% }); %>
+                                        <%} %>
+                                </ul>
+                        
+                        </div>
+                    </div>
+        
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="info"><p> main static info (weather api, etc)    <i class="fas fa-plus"></i></p></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="message-wall"><p>message wall</p></div>
+        
+                                        <div class="message-wall-input input-group">
+                                                             <input type="text" class="form-control" placeholder="type message here">
+                                                             <span class="input-group-btn">
+                                                               <button class="btn btn-default" type="button">submit</button>
+                                                             </span>
+                                                           </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col-md-3">
+                        <div class="chores"><p>chores    <i class="fas fa-plus"></i></p></div>
+                    </div>
+                </div>
 </div>
+            <div>
+                <button class="dltThisHome" id=<%=home.id%>>delete home</button>
+            </div>

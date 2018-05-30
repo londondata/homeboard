@@ -1,18 +1,27 @@
 *{
     font-size: 15px;
     box-sizing: border-box;
+    color: #00FEC8;
+    font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+    text-decoration: none;
+    background-color: #1B2227;
+    border-radius: 8px;
+    margin: 0;
+}
+html, body{
+    background-color: #1B2227;
 }
 a{
     text-decoration: none;
 }
-footer{
+/* footer{
     bottom: 0;
     position: fixed;
-}
+} */
 
 main{
     margin: 2em auto; 
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 #homes {
@@ -36,3 +45,100 @@ main{
 #addHomeForm{
     display: none;
 }
+
+/* {
+    	border: 1px solid white;
+        color: #00FEC8;
+        font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+        text-decoration: none;
+        background-color: #1B2227;
+        border-radius: 8px;
+        margin: 0;
+    } */
+    
+        .header{
+            height: 75px;
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+              color: #00FEC8;
+               border-radius: 0;
+            background-color: #1B2227;
+        }
+        .hb {
+            padding: 10px;
+        }
+    
+        .date{
+            padding: 10px;
+            margin-top: 22px;
+            margin-right: 10px;
+        }
+    
+        main {
+            border-radius: 0px;
+        }
+    
+        .container{
+            padding-top: 20px;
+        }
+    
+        p {
+            background-color: #2D353A;
+            display: inline;
+        }
+    
+        .fas{
+            background-color: #2D353A;
+            margin-right: 1px;
+        }
+    
+        .row > div{
+            margin-bottom: 15px;
+        }
+        .footer{
+            min-height: 40px;
+            text-align: right;
+            color: white;
+            background: transparent;
+            /* background: #2D353A; */
+            padding: 10px;
+        
+        }
+        .household, .chores{
+            min-height: 445px;
+            background: #2D353A;
+            padding: 10px;
+        }
+        .info{
+            min-height: 185px;
+            background: #2D353A;
+            padding: 10px;
+        }
+        .message-wall{
+            min-height: 225px;
+            background: #97A2B7;
+            margin-bottom: -15px;
+            padding: 10px;
+        }
+        .message-wall > p{
+               background: #97A2B7;
+        }
+        .message-wall-input{
+            border-radius: 0;
+        }
+    
+     footer{
+         margin: 3em auto;
+         width: 82%;
+     }   
+    /* Styles for proper margin when layout becomes horizontal */
+    @media (max-width: 991px){
+        .content-bottom{
+            margin-bottom: 15px;
+        }
+        .content-bottom.bg-alt{
+            margin-bottom: -15px;
+        }
+    }

@@ -1,11 +1,12 @@
 const express = require('express'),
       router = express.Router(), 
-      db = require('../models/') 
+      db = require('../models/'),
+      app = express(); 
 //TODO: create function to respond with date to request
 
 module.exports = {
     //crud
-    
+    //TODO: show all the homes
     showHome: (req, res) => {
         db.Home.find({})
             .then((results)=>{
@@ -18,7 +19,6 @@ module.exports = {
             })
     
     },
-
     // TODO: find one home with id
     getHome:(req, res)=>{
         console.log("finding home")
@@ -32,7 +32,7 @@ module.exports = {
 
     //find and delete home data
 
-    //create and append home data
+    //create home
     makeHome: (req, res)=>{
         console.log("MAKE HOME CALLED")
         console.log("MAKE HOME CALLED", req.body)
@@ -55,18 +55,35 @@ module.exports = {
                     res.redirect('/')
                 });
     },
+//TODO: update or modify home
 
+// PUT or PATCH /api/albums/:albumId
+ updateHome: (req, res) => {
+    // find one home by id, update it based on request body,
+    let id = req.params.id
+    db.Home.findByIdAndUpdate(id, (err, updatedHome) => {
+      if (err) { console.log(err) }
+      console.log(`updatedHome`)
+      res.redirect(`/${id}`)
+    })
+  },
 
-// DELETE by Id
+// DELETE home by Id
     destroyHome:(req, res) => {
         // find one home by id, delete it, and send it back as JSON
         let id = req.params.id
         db.Home.findByIdAndRemove(id, (err, destroyed) => {
         if (err) { console.log(err) }
         console.log(`deleted home`)
-        // res.json(destroyed)
-        res.redirect('/')
-        })
+        res.json(destroyed)
+        // res.redirect('/')
+        }).then ((result)=>{
+            console.log("SUCCESS DELETED HOME: ", result)
+            // res.redirect('/')
+        }).catch((err)=>{
+            console.log("ERR: ", err)
+            // res.redirect('/')
+        });
     }
     
 

@@ -13,7 +13,7 @@ router.get('/:id', main.getHome);
 router.post('/newhome', main.makeHome);
 // TODO: update data
 // router.post('/newhome', main.makeHome);
-
+router.put('/:id', main.updateHome)
 // TODO: delete data
-router.post('/:id', main.destroyHome);
+router.delete('/:id', main.destroyHome);
 module.exports = router;
