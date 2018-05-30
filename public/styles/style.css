@@ -37,6 +37,10 @@
     	border-radius: 0px;
     }
 
+    .dummydata {
+    	display: inline-block;
+    }
+
     .container{
     	padding-top: 20px;
     }
@@ -90,8 +94,20 @@
     	border-radius: 0;
     }
 
-	.modal-content {
+	.modal-header, .modal-body, .modal-footer {
     	border-radius: 0;
+    }
+
+    .dropdown-menu {
+    	border-radius: 0;
+    	background-color: transparent;
+    }
+    .dropydowncolors{
+    	color: #00FEC8;
+    }
+
+    li:hover {
+    	color: white;
     }
 
 /* Styles for proper margin when layout becomes horizontal */
