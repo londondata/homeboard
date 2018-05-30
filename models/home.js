@@ -17,7 +17,6 @@ const mongoose = require('mongoose'),
 
 let homeSchema = new Schema({
     name: String,
-    members: [{type: Schema.Types.ObjectId, ref: 'User'}],
     pets: [{type: Schema.Types.ObjectId, ref: 'Pet'}],
     Chors: [{type: Schema.Types.ObjectId, ref: 'Chor'}],
     utilities: [utilitySchema],

@@ -5,7 +5,8 @@ const mongoose = require('mongoose'),
         name: String,
         work: [{where: String, workhours: String}],
         chors: [{type: Schema.Types.ObjectId, ref: 'Chor'}],
-        isHome: Boolean
+        isHome: Boolean,
+        home: {type: Schema.Types.ObjectId, ref:'home'}
     })      
     
     

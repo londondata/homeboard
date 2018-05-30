@@ -7,7 +7,7 @@ const express = require('express'),
 module.exports = {
     //crud
     //TODO: show all the homes
-    showHome: (req, res) => {
+    index: (req, res) => {
         db.Home.find({})
             .then((results)=>{
                 // console.log("rendering")
@@ -20,20 +20,25 @@ module.exports = {
     
     },
     // TODO: find one home with id
-    getHome:(req, res)=>{
+    show:(req, res)=>{
         // console.log("finding home")
         let id = req.params.id;
         db.Home.findById(id, (err, foundHome)=>{
             if (err) { console.log(err) }
             // console.log(`found ${foundHome}`)
-            res.render('home', {home: foundHome})
+            let homeFound = foundHome;
+            let usersFound = db.User.findById(id,(err, foundUsers)=>{
+                if(err){console.log(err)}
+            });
+            res.render('home', {home: homeFound, users: usersFound})
+
         })
     },
 
     //find and delete home data
 
     //create home
-    makeHome: (req, res)=>{
+    create: (req, res)=>{
         // console.log("MAKE HOME CALLED", req.body)
             let newHome = new db.Home({
                 name: `${req.body.name}`,
@@ -56,7 +61,7 @@ module.exports = {
     },
 //TODO: update or modify home
 // PUT or PATCH /api/albums/:albumId
- updateHome: (req, res) => {
+ update: (req, res) => {
     // find one home by id, update it based on request body,
     let id = req.params.id
     let data = req.body
@@ -71,7 +76,7 @@ module.exports = {
   },
 
 // DELETE home by Id
-    destroyHome:(req, res) => {
+    destroy:(req, res) => {
         // find one home by id, delete it, and send it back as JSON
         let id = req.params.id
         db.Home.findByIdAndRemove(id, (err, destroyed) => {
@@ -86,10 +91,5 @@ module.exports = {
             console.log("ERR: ", err)
             // res.redirect('/')
         });
-    },
-
-    
-
-    
-
+    },    
 }

@@ -5,31 +5,30 @@ const express = require('express'),
 
 
 module.exports = {
+
+    //create destroy update show index
      // TODO: create user
-     createUser: (data)=>{
+     create: (req, res) => {
+        console.log(req.body)
         let newUser = new db.User({
-            name: `${data.name}`,
-            work: data.work,
+            name: `${req.body.name}`,
+            work: {work:`${req.body.where}`, workhours:`${req.body.workhours}`},
             chors: null,
             isHome: true,
+            homeid: {type:`${req.body.homeid}`, ref: 'home'}
             });
-            // console.log("NEW HOME: ", newHome)
+            console.log("NEW USER: ", newUser)
         newUser.save()
                 .then ((result)=>{
                 console.log("SUCCESS NEW USER: ", result)
-                app.use(reload(path))
             }).catch((err)=>{
                 console.log("ERR: ", err)
-                app.use(reload(path))
             });
             
     },
-
-
-    // TODO: delete user
-    //crud
+    
     //TODO: show users
-    showUser: (req, res) => {
+    index: (req, res) => {
         db.User.find({})
             .then((results)=>{
                 console.log("users", results)
@@ -39,8 +38,9 @@ module.exports = {
             })
     
     },
+
     // TODO: find one user with id
-    getUser:(req, res)=>{
+    show:(req, res)=>{
         // console.log("finding user")
         let id = req.params.id;
         db.User.findById(id, (err, foundUser)=>{
@@ -49,41 +49,31 @@ module.exports = {
         })
     },
 
-//TODO: update or modify user
- updateHome: (req, res) => {
-    // find one user by id, update it based on request body,
-    let id = req.params.id
-    let data = req.body
-    // let newUser = createUser(data);
-    // console.log(createUser(data))
-    // console.log("parasm: ", data)
-    // db.User.findByIdAndUpdate(id, {"$set": createUser(data)},  { new: true }, function(err, updatedHome){
-    //   if (err) { console.log(err) }
-    // //   console.log(`updatedHome`)
-    //   res.redirect(`/${id}`)
-    // })
-  },
-
-// DELETE home by Id
-    destroyUser:(req, res) => {
-        // find one home by id, delete it, and send it back as JSON
+    //TODO: update or modify user
+    update: (req, res) => {
         let id = req.params.id
-        db.User.findByIdAndRemove(id, (err, destroyed) => {
+        let data = req.body
+        let newUser = createUser(data);
+        db.User.findByIdAndUpdate(id, function(err, updatedUser){
         if (err) { console.log(err) }
-        // console.log(`deleted home`)
-        res.json(destroyed)
-        // res.redirect('/')
-        }).then ((result)=>{
-            // console.log("SUCCESS DELETED HOME: ", result)
-            // res.redirect('/')
-        }).catch((err)=>{
-            console.log("ERR: ", err)
-            // res.redirect('/')
-        });
+        //   console.log(`updateduser`, updateUser)
+        res.redirect(`/${id}`)
+        })
     },
 
-    
-
-    
+    // DELETE home by Id
+        destroy:(req, res) => {
+            // find one home by id, delete it, and send it back as JSON
+            let id = req.params.id
+            db.User.findByIdAndRemove(id, (err, destroyed) => {
+            if (err) { console.log(err) }
+            // console.log(`deleted home`)
+            res.json(destroyed)
+            }).then ((result)=>{
+                // console.log("SUCCESS DELETED HOME: ", result)
+            }).catch((err)=>{
+                console.log("ERR: ", err)
+            });
+        }  
 
 }

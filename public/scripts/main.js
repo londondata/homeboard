@@ -63,15 +63,18 @@ $('#date').val(today);
         e.preventDefault();
         e.stopImmediatePropagation();
         let id = e.currentTarget.id
+        console.log("id of button", id)
         $.ajax({
-            method: 'put',
-            url: `/${id}`,
+            method: 'post',
+            url: `/newuser`,
             data: {name:"biniam", work:{where: "GA", workhours: "m-f 9-5"},
             chors: null,
-            isHome: true
+            isHome: true,
+            homeid: {type: id, ref: 'home'}
                 },
             success: (res) => {
-                console.log("just update home")
+
+                console.log("just made user", res)
                 window.location = `/`
             },
             error: (a, b, c) => {
