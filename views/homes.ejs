@@ -12,9 +12,9 @@
 <div id="homes">
    
             <div class="homesContainer">
-                    <%if (home.length >= 1) { %>
-                        <% home.forEach((home)=> { %>
-                <div class="home" id= <%= home.id %>>
+                    <% if(home.length >= 1) { %>
+                        <% home.forEach((home)=> {%>
+                <div class="home" id= <%= home.id %> >
                     <div style="text-decoration: none">
                         <i style = "font-size: 6em" class="fas fa-home"></i>
                         <h1><%= home.name %></h1>

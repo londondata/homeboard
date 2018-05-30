@@ -31,7 +31,7 @@ module.exports = {
     index: (req, res) => {
         db.User.find({})
             .then((results)=>{
-                console.log("users", results)
+                // console.log("users", results)
             })
             .catch((err)=>{
                 console.log(err)

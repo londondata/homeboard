@@ -9,9 +9,9 @@ $(document).ready(() =>{
     var day = ("0" + now.getDate()).slice(-2);
     var month = ("0" + (now.getMonth() + 1)).slice(-2);
     var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+    $('#date').val(today);
 
     //ADD HOME WHEN BTN CLICKED
-    $('#date').val(today);
     $("#addHome").on("click", (e)=>{
         e.preventDefault();
         e.stopImmediatePropagation();
@@ -23,10 +23,13 @@ $(document).ready(() =>{
     // when a specific  home is selected pass the id and get the respective home data
     //also render new page with the requested home
     $(".Home").on("click", $('#homes'), (e)=>{
-        e.preventDefault();
-        e.stopImmediatePropagation();
+        // e.preventDefault();
+        // e.stopImmediatePropagation();
+
+        console.log(e.currentTarget)
         let id = e.currentTarget.id
-        console.log(id)
+        // 
+        console.log(e.currentTarget.id)
                 
         $.ajax({
             method: 'GET',
@@ -48,7 +51,7 @@ $(document).ready(() =>{
         e.preventDefault();
         e.stopImmediatePropagation();
         let id = e.currentTarget.id
-        //  console.log(`home id ${e.currentTarget.id} will be destroyed`)
+         console.log(`home id ${e.currentTarget.id} will be destroyed`)
         $.ajax({
             method: 'DELETE',
             url: `/${id}`,

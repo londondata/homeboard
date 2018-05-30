@@ -7,19 +7,10 @@
 <div class="container">
                 <div class="row">
                     <div class="col-md-3">
-                        <div class="household"><p>household + pets </p> <i id=<%=home.id%> class="addUser fas fa-plus"></i>
+                        <div class="household">
+                            <p>household + pets </p>  <i id= <%=home.id %> class="addUser fas fa-plus"></i>
                                 <ul id="members">
-                                        <!-- get the users and iterate through them using ejs -->
-                                        <%if (users !== null && users.length >= 1) { %>
-                                                <% users.forEach((user)=> { %>
-                                        <li class="member" id= <%= member.id %>>
-                                            <div>
-                                                <i style = "font-size: 6em" class="fas fa-person"></i>
-                                                <h1><%= user.name %></h1>
-                                            </div>
-                                        </div> 
-                                        <% }); %>
-                                        <%} %>
+                                    
                                 </ul>
                         
                         </div>

@@ -11,36 +11,42 @@ module.exports = {
         db.Home.find({})
             .then((results)=>{
                 // console.log("rendering")
-               let home = results
-                res.render('homes', {home: home});
+               console.log("found homes: ", results);
+               debugger
+              res.render('homes', {home: results});
             })
             .catch((err)=>{
                 console.log(err)
+                res.json(err);
             })
     
     },
-    // TODO: find one home with id
+    //find one home with id
     show:(req, res)=>{
-       let homeFound, usersFound;
+        console.log("SHOW HIT")
+       let homeFound;
         let id = req.params.id;
+        console.log(req.params)
+        console.log("ID: ", id)
         db.Home.findById(id, (err, foundHome)=>{
             if (err) { console.log(err) }
+            console.log("SUCCES: ", foundHome)
             // console.log(`found ${foundHome}`)
              homeFound = foundHome;
-             usersFound = db.User.findById(id,(err, foundUsers)=>{
-                if(err){console.log(err)}
-            });
+            //  usersFound = db.User.findById(id,(err, foundUsers)=>{
+            //     if(err){console.log(err)}
+            // });
         })
         .then((results)=>{
             // console.log("rendering")
-            res.render('home', {home: homeFound, users: usersFound})
+            // res.render('home', {home: homeFound})
         })
         .catch((err)=>{
             console.log(err)
         })
     },
 
-    //TODO: create home
+    //create home
     create: (req, res)=>{
         // console.log("MAKE HOME CALLED", req.body)
             let newHome = new db.Home({

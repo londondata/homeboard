@@ -1,4 +1,5 @@
 module.exports = {
-    homes: require('./home'),
-    users: require('./user')
+    api: require('./apiController'),
+    homes: require('./homeController'),
+    users: require('./userController')
   }
