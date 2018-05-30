@@ -6,6 +6,7 @@ const express =require('express'),
       expressLayouts = require('express-ejs-layouts'),
       bodyParser = require('body-parser'),
       mongoose = require('mongoose'),
+      path = require('path'),
       routes = require('./routes/routes'),
       port = process.env.PORT || 3000;
 
@@ -18,8 +19,10 @@ mongoose.Promise = global.Promise;
 app.use(express.static(__dirname + '/public'));
 
 //TODO: set our templating Engine/ 
-app.set('view engine', 'ejs');
 app.use(expressLayouts);
+// app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
  
 //set up bodyParser
 app.use(bodyParser.urlencoded({extended: true}));
