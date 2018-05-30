@@ -7,7 +7,7 @@
 <div class="container">
                 <div class="row">
                     <div class="col-md-3">
-                        <div class="household"><p>household + pets    <i class="fas fa-plus"></i> </p>
+                        <div class="household"><p>household + pets </p> <i id=<%=home.id%> class="addUser fas fa-plus"></i>
                                 <ul id="members">
                                         <!-- get the users and iterate through them using ejs -->
                                         <%if (home.members !== null && home.members.length >= 1) { %>
@@ -49,7 +49,7 @@
                         <div class="chores"><p>chores    <i class="fas fa-plus"></i></p></div>
                     </div>
                 </div>
-</div>
-            <div>
+        </div>
+       <div>
                 <button class="dltThisHome" id=<%=home.id%>>delete home</button>
-            </div>
+       </div>

@@ -1,3 +1,6 @@
+
+
+
 $(document).ready(() =>{
     console.log("sanity check")
 
@@ -54,5 +57,27 @@ $('#date').val(today);
             }
           })
     });
+
+
+    $('.addUser').on("click", (e)=> {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        let id = e.currentTarget.id
+        $.ajax({
+            method: 'put',
+            url: `/${id}`,
+            data: {name:"biniam", work:{where: "GA", workhours: "m-f 9-5"},
+            chors: null,
+            isHome: true
+                },
+            success: (res) => {
+                console.log("just update home")
+                window.location = `/`
+            },
+            error: (a, b, c) => {
+              console.log(a, b, c)
+            }
+          })
+    })
 
 })

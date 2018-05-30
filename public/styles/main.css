@@ -83,7 +83,13 @@ main{
         .container{
             padding-top: 20px;
         }
-    
+    .addUser{
+        color: steelblue;
+        font-size: 2em;
+        padding: 0.3em;
+        border: 1px solid green;
+        margin-left:1em; 
+    }
         p {
             background-color: #2D353A;
             display: inline;
@@ -133,6 +139,9 @@ main{
          margin: 3em auto;
          width: 82%;
      }   
+     .dltThisHome{ 
+        margin: 0 1.2em;
+     }
     /* Styles for proper margin when layout becomes horizontal */
     @media (max-width: 991px){
         .content-bottom{

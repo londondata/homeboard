@@ -4,7 +4,7 @@ const mongoose = require('mongoose'),
       let userSchema = new Schema({
         name: String,
         work: [{where: String, workhours: String}],
-        Chors: [{type: Schema.Types.ObjectId, ref: 'Chor'}],
+        chors: [{type: Schema.Types.ObjectId, ref: 'Chor'}],
         isHome: Boolean
     })      
     

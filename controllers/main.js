@@ -21,7 +21,7 @@ module.exports = {
     },
     // TODO: find one home with id
     getHome:(req, res)=>{
-        console.log("finding home")
+        // console.log("finding home")
         let id = req.params.id;
         db.Home.findById(id, (err, foundHome)=>{
             if (err) { console.log(err) }
@@ -34,8 +34,7 @@ module.exports = {
 
     //create home
     makeHome: (req, res)=>{
-        console.log("MAKE HOME CALLED")
-        console.log("MAKE HOME CALLED", req.body)
+        // console.log("MAKE HOME CALLED", req.body)
             let newHome = new db.Home({
                 name: `${req.body.name}`,
                 members: null,
@@ -45,7 +44,7 @@ module.exports = {
                 groceries: null,
                 msgWall: null,
                 });
-                console.log("NEW HOME: ", newHome)
+                // console.log("NEW HOME: ", newHome)
             newHome.save()
                     .then ((result)=>{
                     // console.log("SUCCESS HOME: ", result)
@@ -56,16 +55,19 @@ module.exports = {
                 });
     },
 //TODO: update or modify home
-
 // PUT or PATCH /api/albums/:albumId
  updateHome: (req, res) => {
     // find one home by id, update it based on request body,
     let id = req.params.id
-    db.Home.findByIdAndUpdate(id, (err, updatedHome) => {
-      if (err) { console.log(err) }
-      console.log(`updatedHome`)
-      res.redirect(`/${id}`)
-    })
+    let data = req.body
+    // let newUser = createUser(data);
+    // console.log(createUser(data))
+    console.log("parasm: ", data)
+    // db.Home.findByIdAndUpdate(id, {"$set": createUser(data)},  { new: true }, function(err, updatedHome){
+    //   if (err) { console.log(err) }
+    // //   console.log(`updatedHome`)
+    //   res.redirect(`/${id}`)
+    // })
   },
 
 // DELETE home by Id
@@ -74,17 +76,20 @@ module.exports = {
         let id = req.params.id
         db.Home.findByIdAndRemove(id, (err, destroyed) => {
         if (err) { console.log(err) }
-        console.log(`deleted home`)
+        // console.log(`deleted home`)
         res.json(destroyed)
         // res.redirect('/')
         }).then ((result)=>{
-            console.log("SUCCESS DELETED HOME: ", result)
+            // console.log("SUCCESS DELETED HOME: ", result)
             // res.redirect('/')
         }).catch((err)=>{
             console.log("ERR: ", err)
             // res.redirect('/')
         });
-    }
+    },
+
+    
+
     
 
 }
