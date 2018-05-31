@@ -39,12 +39,11 @@ $('#addMessage').on('click', function(e) {
     console.log('be i working?')
     var newMessage = $('.form-control').val();
    $('.theWall').append(`<p class="chatter">${newMessage}<p>`);
+   var resetForm = $('.form-control').val('');
+   $('.form-control').attr(resetForm);
    // TODO: remove text after submitted ALSO allow text to submit with the enter press
 
 });
 
 
-
-
 });
-//end of function & document
