@@ -34,7 +34,7 @@ $(document).ready(() =>{
     $("#addHome").on("mouseover",  (e)=>{
         console.log("hovering over home")
         // e.preventDefault();
-        // e.stopImmediatePropagation();
+        // e.stopImmediatePropagation();d
         // console.log("sanity check")
         // $('#addHomeForm').css("display","inline-block");
     });
