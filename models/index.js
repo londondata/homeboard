@@ -1,7 +1,7 @@
 
 var mongoose = require("mongoose");
 //change the URI with the mongo server address
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/homeboard', {
+mongoose.connect(process.env.mongolab-lively-53134 || 'mongodb://localhost:27017/homeboard', {
   // useMongoClient: true
 }).then(function(succ){
   // console.log("database connected, look: ", succ)
