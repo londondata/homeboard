@@ -1,0 +1,21 @@
+
+        <form action="/api/users" method="post" id="newUserForm">
+          <div class="form-group"> <!-- Name field -->
+              <label class="control-label " for="name">Name</label>
+              <input class="form-control" id="name" name="name" placeholder="duck" type="text"/>
+          </div>
+
+          <div class="form-group"> <!-- work field -->
+              <label class="control-label " for="work">Where do you work</label>
+              <input class="form-control" id="work" name="work" placeholder="GA" type="text"/>
+          </div>
+
+          <div class="form-group"> <!-- work hours field -->
+              <label class="control-label " for="workHours">when do you work</label>
+              <input class="form-control" id="workHours" name="workHours" placeholder="mon-sun 6am-5pm" type="text"/>
+          </div>
+          
+          <div class="form-group center">
+              <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+          </div>
+      </form>

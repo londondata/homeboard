@@ -1,64 +1,18 @@
-*{
-    font-size: 15px;
-    box-sizing: border-box;
-    color: #00FEC8;
-    font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
-    text-decoration: none;
-    background-color: #1B2227;
-    border-radius: 8px;
-    margin: 0;
-}
-html, body{
-    background-color: #1B2227;
-}
-a{
-    text-decoration: none;
-}
-/* footer{
-    bottom: 0;
-    position: fixed;
-} */
-
-main{
-    margin: 2em auto; 
-    /* border: 2px solid red; */
-}
-
-#homes {
-    margin: 4em auto;
-    border: 2px solid green;
-}
-
-.homesContainer{
-    /* border: 2px solid blue; */
-    text-align: center;
-    display: flex;
-    justify-content:center;
-}
-
-.home{
-    margin: 0 2em;
-}
-#addHome > i, #addHome > h1{
-    color: gray;
-}
-#addHomeForm{
-    display: none;
-}
-
-/* {
-    	border: 1px solid white;
-        color: #00FEC8;
-        font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
-        text-decoration: none;
-        background-color: #1B2227;
-        border-radius: 8px;
-        margin: 0;
-    } */
-    
+        * {
+            /*	border: 1px solid white;*/
+                color: #00FEC8;
+                font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+                text-decoration: none;
+                background-color: #1B2227;
+                border-radius: 8px;
+                margin: 0;
+            }
+        html, body{
+            background-color: #1B2227;
+        }    
+            
         .header{
             height: 75px;
-            text-align: center;
             display: flex;
             flex-direction: row;
             justify-content: flex-end;
@@ -68,37 +22,70 @@ main{
         }
         .hb {
             padding: 10px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            padding-left: 205px;
         }
     
         .date{
             padding: 10px;
             margin-top: 22px;
             margin-right: 10px;
+            display: flex;
+            justify-content: right;
         }
     
         main {
             border-radius: 0px;
         }
-    
+        .homesContainer{
+            display: flex;
+            flex-direction: row;
+            /* border: 2px solid red; */
+            justify-content: center;
+        }
+        .homedivs{
+            padding:10em 2em;
+            /* border: 2px solid greenyellow; */
+        }
         .container{
             padding-top: 20px;
         }
-    .addUser{
-        color: steelblue;
-        font-size: 2em;
-        padding: 0.3em;
-        border: 1px solid green;
-        margin-left:1em; 
-    }
+    
         p {
             background-color: #2D353A;
-            display: inline;
+        }
+    
+        .householdContainer, .choresContainer {
+            display: flex;
+            flex-direction: column;
+            min-height: 445px;
+            background: #2D353A;
+            padding: 10px;
+    
         }
     
         .fas{
             background-color: #2D353A;
-            margin-right: 1px;
         }
+    
+        .household, .chores {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background: #2D353A;
+        }
+    
+        .householdList, .choreList {
+            background: #2D353A; 
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: left;
+            padding: 10px;
+        }
+    
     
         .row > div{
             margin-bottom: 15px;
@@ -107,18 +94,25 @@ main{
             min-height: 40px;
             text-align: right;
             color: white;
-            background: transparent;
-            /* background: #2D353A; */
+            background: #2D353A;
             padding: 10px;
-            position: fixed;
-            bottom: 0;
         
         }
-        .household, .chores{
-            min-height: 445px;
+    
+        .chores {
             background: #2D353A;
             padding: 10px;
         }
+    
+        .checkboxen {
+            margin-left: 75px;
+        }
+    
+        #dummydate {
+            margin-left: 20px;
+    
+        }
+    
         .info{
             min-height: 185px;
             background: #2D353A;
@@ -132,18 +126,28 @@ main{
         }
         .message-wall > p{
                background: #97A2B7;
+               color: black;
         }
         .message-wall-input{
             border-radius: 0;
         }
     
-     footer{
-         margin: 3em auto;
-         width: 82%;
-     }   
-     .dltThisHome{ 
-        margin: 0 1.2em;
-     }
+        .modal-header, .modal-body, .modal-footer {
+            border-radius: 0;
+        }
+    
+        .dropdown-menu {
+            border-radius: 0;
+            background-color: transparent;
+        }
+        .dropydowncolors{
+            color: #00FEC8;
+        }
+    
+        li:hover {
+            color: white;
+        }
+    
     /* Styles for proper margin when layout becomes horizontal */
     @media (max-width: 991px){
         .content-bottom{

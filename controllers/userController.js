@@ -9,18 +9,19 @@ module.exports = {
     //create destroy update show index
      // TODO: create user
      create: (req, res) => {
-        console.log(req.body)
+        console.log("CREATE USER HIT, :) ",req.body)
         let newUser = new db.User({
-            name: `${req.body.name}`,
-            work: {work:`${req.body.where}`, workhours:`${req.body.workhours}`},
+            _homeId: req.body.home_id,
+            name:  req.body.name,
+            work: {work: req.body.work, workhours: req.body.workHours},
             chors: null,
             isHome: true,
-            homeid: {type:`${req.body.homeid}`, ref: 'home'}
+           
             });
             console.log("NEW USER: ", newUser)
         newUser.save()
                 .then ((result)=>{
-                console.log("SUCCESS NEW USER: ", result)
+                // console.log("SUCCESS NEW USER: ", result)
             }).catch((err)=>{
                 console.log("ERR: ", err)
             });

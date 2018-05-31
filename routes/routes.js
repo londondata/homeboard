@@ -16,7 +16,7 @@ router.delete('/api/homes/:id',controller.homes.destroy);
 //routes for user
 // router.get('/user',controller.users.index);
 // router.get('/user/:id',controller.users.show);
-// router.post('/newuser',controller.users.create);
+router.post('/api/users',controller.users.create);
 // router.put('/user/:id',controller.users.update);
 // router.delete('/user/:id',controller.users.destroy);
 
