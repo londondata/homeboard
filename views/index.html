@@ -20,10 +20,19 @@
 	<main>
 		<div class="container">
         <div class="row">
-            <div class="col-md-3">
-                <div class="household"><p>household</p><i class="fas fa-plus householdadd" data-toggle="modal" data-target="#householdModal"></i><
-                	<div class="dummydata"><p>teripanda - general assembly - 8 am - 5 pm</p><p>little miss kitten - housepet - 24 hours per day</p><p>isa - cannabis - hours vary</p></div></div>
-            </div>
+        	<!-- give the div below the min height -->
+            <div class="col-md-3 householdContainer">
+            	<!-- this will be title -->
+                <div class="household">
+                	<p>household</p><i class="fas fa-plus householdadd" data-toggle="modal" data-target="#householdModal"></i>                	
+                </div>
+                <!-- this will be list -->
+                <div class="householdList">
+                	<p>teri - general assembly - 8 am - 5 pm</p>
+                	<p>little miss kitten - housepet - 24/7</p>
+                	<p>isa - cannabis rep - hours vary</p>
+                </div>
+        </div>
 
             <div class="col-md-6">
                 <div class="row">
@@ -36,17 +45,41 @@
                         <div class="message-wall"><p>message wall</p></div>
 
                         	<div class="message-wall-input input-group">
-     						<input type="text" class="form-control" placeholder="type message here">
+
+     						<input type="text" class="form-control" placeholder="type message here" id="messages">
+     						
      						<span class="input-group-btn">
-       						<button class="btn btn-default" type="button">submit</button>
+       						<button class="btn btn-default" type="button" id="addMessage">submit</button>
 						     </span>
 						   </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-3 choresContainer">
                 <div class="chores"><p>chores</p><i class="fas fa-plus choresadd" data-toggle="modal" data-target="#choresModal"></i></div>
+ 				<div class="choreList">
+                	<p>clean bathroom
+                		<label class="checkboxen">
+                			<input type="checkbox">
+                		</label>
+                	</p>
+                	<p>teri <input id="dummydate" type="date"></p>
+                	<p>wash dishes
+                		<label class="checkboxen">
+                			<input type="checkbox">
+                		</label>
+                	</p>
+                	<p>isa <input id="dummydate" type="date"></p>
+                	<p>buy incense
+                		<label class="checkboxen">
+                			<input type="checkbox">
+                		</label>
+                	</p>
+                	<p>teri <input id="dummydate" type="date"></p>
+                </div>
+
+
             </div>
         </div>
         <div class="row">
@@ -132,8 +165,5 @@
 </div>
 
 	</main>
-	
-
-
 </body>
 </html>

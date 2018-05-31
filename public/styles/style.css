@@ -37,27 +37,43 @@
     	border-radius: 0px;
     }
 
-    .dummydata {
-    	display: inline-block;
-    }
-
     .container{
     	padding-top: 20px;
     }
 
     p {
     	background-color: #2D353A;
-    /*	margin-top: 20px;*/
+    }
+
+    .householdContainer, .choresContainer {
+    	display: flex;
+    	flex-direction: column;
+    	min-height: 445px;
+    	background: #2D353A;
+        padding: 10px;
+
     }
 
     .fas{
     	background-color: #2D353A;
     }
-    .household, .info, .chores {
+
+    .household, .chores {
     	display: flex;
     	flex-direction: row;
     	justify-content: space-between;
+    	background: #2D353A;
     }
+
+    .householdList, .choreList {
+    	background: #2D353A; 
+    	display: flex;
+    	flex-direction: column;
+    	align-items: flex-start;
+    	justify-content: left;
+    	padding: 10px;
+    }
+
 
 	.row > div{
         margin-bottom: 15px;
@@ -70,11 +86,21 @@
         padding: 10px;
     
     }
-    .household, .chores{
-        min-height: 445px;
+
+    .chores {
         background: #2D353A;
         padding: 10px;
     }
+
+    .checkboxen {
+    	margin-left: 75px;
+    }
+
+    #dummydate {
+    	margin-left: 20px;
+
+    }
+
     .info{
         min-height: 185px;
         background: #2D353A;
