@@ -44,7 +44,6 @@ $(document).ready(() =>{
     //also render new page with the requested home
     // $("div").on("click", $('.homesContainer'), (e)=>{
     //     e.preventDefault();
-    //     // e.stopImmediatePropagation();
     //     let id = e.currentTarget.id
     //     console.log(`HOME WITH ${e.target} SELECTED`)   
     // });
