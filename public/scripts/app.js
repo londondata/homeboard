@@ -162,7 +162,30 @@ deleteHome = ()=>{
        let homesDiv =  `<div class= "homedivs" id="addHome">
                             <i style = "font-size: 6em" class="fas fa-home"></i>
                             <h1>add home +</h1>
-                        </div>`
+                        </div>
+                        <div class="modal fade" id="addHouseModal" tabindex="-1" role="dialog" aria-labelledby="addHouseholdModalLabel">
+                            <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="houseModalLabel">add house name</h4>
+                                </div>
+                                <div class="modal-body">
+                        
+                                <form action="/api/homes" method="post"  id="newHouseForm">
+                                    <div class="form-group"> <!-- home Name field -->
+                                        <label class="control-label " for="name">Home Name</label>
+                                        <input class="form-control" id="name" name="name" placeholder="GA" type="text"/>
+                                    </div>
+                                    <div class="form-group center">
+                                        <button class="btn btn-primary" name="submit"  type="submit">Submit</button>
+                                    </div>
+                                </form>
+      
+                                </div>
+                            </div>
+                            </div>
+                        </div> `   
         return homesDiv;
     }
     
@@ -185,6 +208,15 @@ deleteHome = ()=>{
                                            let id = e.currentTarget.id
                                            getHome(id)
                                         }
+                                    });
+                                    
+                                    $('#addHome').on('click', (e) => {
+                                        // console.log(e.currentTarget.id)    
+                                           let id = e.currentTarget.id
+                                           console.log('ADDHOme Clicked')
+                                        //    addHomeFormHtml();
+                                        $('#addHouseModal').modal('toggle');
+                                    
                                     }) 
                 } 
     
