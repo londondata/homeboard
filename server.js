@@ -12,23 +12,25 @@ const express =require('express'),
 
 mongoose.Promise = global.Promise;
 
+//set up bodyParser
+app.use(bodyParser.urlencoded({extended: true}));
 
 //configure app
+
+//setup routes
+app.use(require('./routes/routes'))
 
 //TODO: tell express where our static documents are
 app.use(express.static(__dirname + '/public'));
 
+ // add a route so your server will respond to GET / by serving index.html
+ app.get('/', function homepage (req, res) {
+    res.sendFile('/views/index.html', { root : __dirname });
+  });   
 //TODO: set our templating Engine/ 
-app.use(expressLayouts);
+// app.use(expressLayouts);
 // app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
- 
-//set up bodyParser
-app.use(bodyParser.urlencoded({extended: true}));
-
-//setup routes
-app.use(require('./routes/routes'))
+// app.set('view engine', 'ejs');
 
 
 app.listen(port, ()=>{

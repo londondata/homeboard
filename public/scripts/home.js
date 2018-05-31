@@ -1,16 +1,13 @@
-<!-- <div id="thishome" class="jumbotron">
-        <h1><%= home.name %></h1> 
-       <button id=<%=home.id %>>deleteHome</button> 
-</div> -->
 
-
-<div class="container">
+  module.exports = { homeHtml =(home) =>{ ` <div class="container">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="household">
-                            <p>household + pets </p>  <i id= <%=home.id %> class="addUser fas fa-plus"></i>
+                            <p>household + pets </p>  <i id=${home.id} class="addUser fas fa-plus"></i>
                                 <ul id="members">
-                                    
+                                1.memeber one
+                                2.memeber two
+                                3.member three
                                 </ul>
                         
                         </div>
@@ -42,5 +39,7 @@
                 </div>
         </div>
        <div>
-                <button class="dltThisHome" id=<%=home.id%>>delete home</button>
-       </div>
+                <button class="dltThisHome" id=${home.id}>delete home</button>
+       </div>` 
+}
+}

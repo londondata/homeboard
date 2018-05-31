@@ -30,7 +30,7 @@ main{
 }
 
 .homesContainer{
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     text-align: center;
     display: flex;
     justify-content:center;
@@ -110,6 +110,8 @@ main{
             background: transparent;
             /* background: #2D353A; */
             padding: 10px;
+            position: fixed;
+            bottom: 0;
         
         }
         .household, .chores{

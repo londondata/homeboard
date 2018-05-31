@@ -2,18 +2,13 @@
 const express = require('express'),
       router = express.Router(),
       controller = require('../controllers');
+  
 
- // add a route so your server will respond to GET / by serving index.html
-router.get('/', function homepage (req, res) {
-      res.render('homes', {home: []})
-      // res.sendFile('views/index.html', { root : __dirname });
-    });     
-
-router.get('/api', controller.api.index);    
+// router.get('/', controller.homes.index);    
 //routes for home
 router.get('/api/homes',controller.homes.index);
 router.get('/api/homes/:id',controller.homes.show);
-router.post('/api/homes/newhome',controller.homes.create);
+router.post('/api/homes',controller.homes.create);
 router.put('/api/homes/:id',controller.homes.update);
 router.delete('/api/homes/:id',controller.homes.destroy);
 

@@ -10,10 +10,8 @@ module.exports = {
     index: (req, res) => {
         db.Home.find({})
             .then((results)=>{
-                // console.log("rendering")
-               console.log("found homes: ", results);
-               debugger
-              res.render('homes', {home: results});
+            //    console.log("found homes: ", results);
+              res.json(results);
             })
             .catch((err)=>{
                 console.log(err)
@@ -26,16 +24,11 @@ module.exports = {
         console.log("SHOW HIT")
        let homeFound;
         let id = req.params.id;
-        console.log(req.params)
         console.log("ID: ", id)
         db.Home.findById(id, (err, foundHome)=>{
             if (err) { console.log(err) }
             console.log("SUCCES: ", foundHome)
-            // console.log(`found ${foundHome}`)
-             homeFound = foundHome;
-            //  usersFound = db.User.findById(id,(err, foundUsers)=>{
-            //     if(err){console.log(err)}
-            // });
+            res.json(foundHome);
         })
         .then((results)=>{
             // console.log("rendering")
