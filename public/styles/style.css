@@ -120,6 +120,12 @@
     	border-radius: 0;
     }
 
+    .theWall {
+    	display: inline;
+    	background: #97A2B7;
+    	color: black;
+    }
+
 	.modal-header, .modal-body, .modal-footer {
     	border-radius: 0;
     }

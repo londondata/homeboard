@@ -35,18 +35,13 @@ $('#date').val(today);
 
 $('#addMessage').on('click', function(e) {
     e.preventDefault();
+     // e.stopImmediatePropagation();
     console.log('be i working?')
+    var newMessage = $('.form-control').val();
+   $('.theWall').append(newMessage);
 
-    var newMessage = $('#addMessage');
-
-    // var defaultPlaceholder = $(newTaskField).attr('placeholder');
-
+    // var defaultPlaceholder = $(newTaskField).attr('placeholder');=
     // var newTask = $(newTaskField).val();
-
-   $('#messages').append(newMessage);
-
-   // $(addMessage).val('');
-   
    // $(addMessage).attr('placeholder', defaultPlaceholder);
 });
 
