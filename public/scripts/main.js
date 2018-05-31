@@ -38,11 +38,9 @@ $('#addMessage').on('click', function(e) {
      // e.stopImmediatePropagation();
     console.log('be i working?')
     var newMessage = $('.form-control').val();
-   $('.theWall').append(newMessage);
+   $('.theWall').append(`<p class="chatter">${newMessage}<p>`);
+   // TODO: remove text after submitted ALSO allow text to submit with the enter press
 
-    // var defaultPlaceholder = $(newTaskField).attr('placeholder');=
-    // var newTask = $(newTaskField).val();
-   // $(addMessage).attr('placeholder', defaultPlaceholder);
 });
 
 

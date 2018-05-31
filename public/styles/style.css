@@ -120,6 +120,11 @@
     	border-radius: 0;
     }
 
+    .chatter{
+   		background: #97A2B7;
+   		color: black;
+    }
+
     .theWall {
     	display: inline;
     	background: #97A2B7;
