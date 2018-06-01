@@ -295,7 +295,7 @@ SingleHomeDiv = (data) =>{
 
                         	<div class="message-wall-input input-group">
 
-     						<input type="text" class="form-control" placeholder="type message here" id="messages">
+     						<input type="text" class="wallMsgInpute form-control" placeholder="type message here" id="messages">
      						<span class="input-group-btn">
        						<button class="btn btn-default" type="button" id="addMessage">submit</button>
 						     </span>
@@ -420,6 +420,17 @@ SingleHomeDiv = (data) =>{
   </div>
 </div>`) 
 
+$('#addMessage').on('click', function(e) {
+    e.preventDefault();
+     // e.stopImmediatePropagation();
+    console.log('be i working?')
+    var newMessage = $('.wallMsgInpute').val();
+   $('.message-wall').append(`<p class="chatter"> => ${newMessage}<p>`);
+//    var resetForm = $('.form-control').val('');
+//    $('.form-control').attr(resetForm);
+   // TODO: remove text after submitted ALSO allow text to submit with the enter press
+ 
+ });
 $('#newUserForm').submit((e)=>{
     e.preventDefault();
     let data = $('#newUserForm').serialize();
