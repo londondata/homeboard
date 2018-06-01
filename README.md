@@ -19,6 +19,11 @@ Back-End:
 - Express
 - jQuery
 
+Hosting:
+- Github
+- Heroku
+- Mlabs (mongodb)
+
 Existing Features:
 - Tracks household users
 - Tracks users work location and schedule
