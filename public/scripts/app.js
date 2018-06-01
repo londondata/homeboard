@@ -21,6 +21,9 @@ $(document).ready(() =>{
     var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
     $('#date').val(today);
 
+
+    //CHECK IF THERE A HOME IF THERE IS GO TO IT IF NOT ASK TO MAKE ONE
+
    //TODO: check if there are any homes if so go to
    // home else offer user to create one
     $.ajax({
@@ -54,8 +57,14 @@ $(document).ready(() =>{
 handleSuccess = (succ) =>{
      let homes = succ;
     // console.log("this is homes", succ);
-    $(".homesContainer").append(homeHtml(succ));
-    homeIcons(homes);
+
+        if(succ.length >= 1){
+            renderHome(succ[0])
+            loadUsers();
+        }else{
+            $(".homesContainer").append(homeHtml(succ));
+            homeIcons(homes);
+        }
 }
 handleError = (err) =>{
     console.log(err)
@@ -84,9 +93,8 @@ getHome = (id)=>{
 renderHome=(res)=>{
     console.log("GOT HOME", res)
     $(".homesContainer").empty();
-    $(".homesContainer").append(SingleHomeDiv(res));
-
-
+    $('.hb').prepend(`${res.name}'s `)
+    SingleHomeDiv(res);
 }
 //  this function lets client create user or home memeber   
  //CREATE USER WHEN BTN-ADD-USER IS CLICKED
@@ -224,9 +232,7 @@ deleteHome = ()=>{
 
 // SINGLE HOME DIV
 SingleHomeDiv = (data) =>{ 
-    $('.hb').prepend(`${data.name}'s `)
-    let home =` 
-    <div class="container">
+    $(".homesContainer").append(`<div class="container">
         <div class="row">
         	<!-- give the div below the min height -->
             <div class="col-md-3 householdContainer">
@@ -236,9 +242,6 @@ SingleHomeDiv = (data) =>{
                 </div>
                 <!-- this will be list -->
                 <div class="householdList">
-                	<p>teri - general assembly - 8 am - 5 pm</p>
-                	<p>little miss kitten - housepet - 24/7</p>
-                	<p>isa - cannabis rep - hours vary</p>
                 </div>
         </div>
 
@@ -308,7 +311,7 @@ SingleHomeDiv = (data) =>{
       </div>
       <div class="modal-body">
 
-        <form action="/api/users" method="post" enctype='${data.id}' id="newUserForm">
+        <form id="newUserForm">
            <input class="form-control" id="homeid" name="home_id" value="${data._id}" type="hidden"/>
             <div class="form-group"> <!-- Name field -->
                 <label class="control-label " for="name">Name</label>
@@ -326,7 +329,7 @@ SingleHomeDiv = (data) =>{
             </div>
 
             <div class="form-group center">
-                <button class="btn btn-primary" name="submit"  type="submit">Submit</button>
+                <button class="btn btn-primary" id="btnSubmit" name="submit"  type="submit">Submit</button>
             </div>
         </form>
 
@@ -369,15 +372,48 @@ SingleHomeDiv = (data) =>{
           </div>
           <div class="modal-footer form-group">
         <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
-        <button type="submit" name="submit" class="btn btn-default">submit</button>
+        <button type="submit" name="submit" id="btnSubmit" class="btn btn-default">submit</button>
       </div>
         </form>
       </div>
     </div>
   </div>
-</div>
-` 
+</div>`) 
 
-    return home;   
+$('#newUserForm').submit((e)=>{
+    e.preventDefault();
+    let data = $('#newUserForm').serialize();
+    console.log("EEEE", data)
+    $.ajax({
+        url:'/api/users',
+        type:'post',
+        data:data,
+        success:function(){
+            console.log("shit got saved")
+            //whatever you wanna do after the form is successfully submitted
+        }
+    });
+    $('#householdModal').modal('toggle'); //or  $('#householdModal').modal('hide');
+    loadUsers();
+})
 }
 // SINGLE HOME DIV End
+
+
+//Load User
+
+loadUsers = ()=>{
+    $.ajax({
+        url:'/api/users',
+        type:'get',
+        success:function(res){
+            console.log("found users: ", res)
+            $('.householdList').empty();
+            res.forEach((user)=>{
+                $('.householdList').append(`<p>${user.name} - ${user.work.work} - ${user.work.workhours}</p>`)
+            })
+            //whatever you wanna do after the form is successfully submitted
+        }
+    });
+
+}

@@ -9,19 +9,22 @@ module.exports = {
     //create destroy update show index
      // TODO: create user
      create: (req, res) => {
-        console.log("CREATE USER HIT, :) ",req.body)
+        // console.log("CREATE USER HIT, :) ",req)
+        let home_id = req.body.home_id;
         let newUser = new db.User({
             _homeId: req.body.home_id,
             name:  req.body.name,
             work: {work: req.body.work, workhours: req.body.workHours},
             chors: null,
             isHome: true,
-           
             });
-            console.log("NEW USER: ", newUser)
+            // console.log("NEW USER: ", newUser)
         newUser.save()
                 .then ((result)=>{
+                    // res.send('hey im gucci')
+                    res.json(result)
                 // console.log("SUCCESS NEW USER: ", result)
+                // res.redirect('/')
             }).catch((err)=>{
                 console.log("ERR: ", err)
             });
@@ -32,6 +35,7 @@ module.exports = {
     index: (req, res) => {
         db.User.find({})
             .then((results)=>{
+                res.json(results);
                 // console.log("users", results)
             })
             .catch((err)=>{

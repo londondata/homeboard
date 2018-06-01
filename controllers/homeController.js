@@ -32,7 +32,6 @@ module.exports = {
         })
         .then((results)=>{
             // console.log("rendering")
-            // res.render('home', {home: homeFound})
         })
         .catch((err)=>{
             console.log(err)
