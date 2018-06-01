@@ -289,12 +289,13 @@ SingleHomeDiv = (data) =>{
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="message-wall"><p>message wall</p></div>
+                        <div class="message-wall"><p>message wall</p>
+                        <p> Finish project one </p>
+                        </div>
 
                         	<div class="message-wall-input input-group">
 
      						<input type="text" class="form-control" placeholder="type message here" id="messages">
-     						<p> Finish project one </p>
      						<span class="input-group-btn">
        						<button class="btn btn-default" type="button" id="addMessage">submit</button>
 						     </span>
