@@ -294,7 +294,7 @@ SingleHomeDiv = (data) =>{
                         	<div class="message-wall-input input-group">
 
      						<input type="text" class="form-control" placeholder="type message here" id="messages">
-     						
+     						<p> Finish project one </p>
      						<span class="input-group-btn">
        						<button class="btn btn-default" type="button" id="addMessage">submit</button>
 						     </span>
