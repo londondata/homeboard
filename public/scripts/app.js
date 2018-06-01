@@ -10,6 +10,30 @@
 //     // console.log("Load was performed.");
 //   });
 
+greetFam=(homeName)=>{
+    // TODO: Create time state helper 
+   let time = new Date().getHours();
+   switch(true){ 
+    case time >= 1 && time <= 11:
+        // return"Good Morning";
+        $(".info").append(`<p>Good Morning ${homeName} Family</p>`)
+        // console.log("Good Morning");
+        break;
+        case time >= 12 && time <= 17:
+        // return"Good Afternoon";
+        $(".info").append(`<p>Good Afternoon ${homeName} Family</p>`)
+        // console.log("Good Morning");
+        break;
+        case time >= 18 && time <= 24:
+        // return"Good Evening";
+        $(".info").append(`<p>Good Evening ${homeName} Family</p>`)
+        // console.log("Good Morning");
+        break;
+    default:
+        console.log("Hello");
+   }
+
+}
 
 $(document).ready(() =>{
     // console.log("sanity check")
@@ -56,14 +80,17 @@ $(document).ready(() =>{
 
 handleSuccess = (succ) =>{
      let homes = succ;
-    // console.log("this is homes", succ);
-
-        if(succ.length >= 1){
+    //  else if(succ !== null || succ.length < 1){
+    //     $(".homesContainer").append(homeHtml(succ));
+    //     homeIcons(homes);
+    console.log("this is homes", succ);
+        if(succ === undefined || succ.length === 0){
+            console.log("HIIT")
+            homeHtml()
+        }else{
             renderHome(succ[0])
             loadUsers();
-        }else{
-            $(".homesContainer").append(homeHtml(succ));
-            homeIcons(homes);
+            greetFam(succ[0].name)
         }
 }
 handleError = (err) =>{
@@ -165,9 +192,10 @@ deleteHome = ()=>{
         </div>`
     };
     
-    homeHtml = (homes) =>{
+    homeHtml = (home) =>{
         // console.log("HIT",homes)
-       let homesDiv =  `<div class= "homedivs" id="addHome">
+        $(".homesContainer").empty();
+        $(".homesContainer").append(`<div class= "homedivs" id="addHome">
                             <i style = "font-size: 6em" class="fas fa-home"></i>
                             <h1>add home +</h1>
                         </div>
@@ -193,8 +221,16 @@ deleteHome = ()=>{
                                 </div>
                             </div>
                             </div>
-                        </div> `   
-        return homesDiv;
+                        </div> ` )
+
+        $('#addHome').on('click', (e) => {
+            // console.log(e.currentTarget.id)    
+               let id = e.currentTarget.id
+               console.log('ADDHOme Clicked')
+            //    addHomeFormHtml();
+            $('#addHouseModal').modal('toggle');
+        
+        }) 
     }
     
     homeIcons = (homes)=>{
@@ -248,7 +284,7 @@ SingleHomeDiv = (data) =>{
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="info"><p> main static info (weather api, etc)</p></div>
+                        <div class="info"></div>
                     </div>
                 </div>
                 <div class="row">
@@ -294,7 +330,10 @@ SingleHomeDiv = (data) =>{
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-4">   
+                <button class="btn btn-danger" id="deleteHome" name="Delete"  type="delete">Delete Home</button>
+            </div>
+            <div class="col-md-8">
                 <div class="footer">&copy; 2018 teri + biniam are amazing</div>
             </div>
         </div>
@@ -395,6 +434,21 @@ $('#newUserForm').submit((e)=>{
     });
     $('#householdModal').modal('toggle'); //or  $('#householdModal').modal('hide');
     loadUsers();
+})
+
+$('#deleteHome').on('click', (e)=>{
+    e.stopImmediatePropagation();
+    $.ajax({
+        method: 'delete',
+        url: `/api/homes/${data._id}`,
+        success: (res) => {
+            handleSuccess()
+            // console.log("just deleted home", res)
+        },
+        error: (a, b, c) => {
+             console.log(a, b, c)
+        }
+    });
 })
 }
 // SINGLE HOME DIV End

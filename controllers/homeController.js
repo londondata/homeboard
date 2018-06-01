@@ -80,8 +80,10 @@ module.exports = {
         if (err) { console.log(err) }
         // console.log(`deleted home`, destroyed)
         res.json(destroyed)
+        // res.json(destroyed)
         }).then ((result)=>{
             // console.log("SUCCESS DELETED HOME: ", result)
+            
         }).catch((err)=>{
             console.log("ERR WHILE DESTORYING: ", err)
         });
